@@ -1,23 +1,5 @@
 
-{
-  "lotto_max": {
-    "next_draw_date": "Friday, November 15, 2025",
-    "jackpot": "$45 Million",
-    "last_numbers": [6, 28, 31, 33, 39, 40, 49],
-    "bonus": 55
-  },
-  "lotto_649": {
-    "next_draw_date": "Saturday, November 16, 2025",
-    "jackpot": "$10 Million",
-    "last_numbers": [3, 14, 22, 27, 35, 44],
-    "golden_ball": 12
-  },
-  "daily_grand": {
-    "next_draw_date": "Monday, November 10, 2025",
-    "jackpot": "$1,000 a Day for Life",
-    "last_numbers": [7, 18, 21, 29, 36],
-    "bonus": 9
-  }
-}
+{}
+
 
 
