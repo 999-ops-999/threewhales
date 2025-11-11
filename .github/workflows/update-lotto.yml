@@ -1,14 +1,12 @@
 name: Update Lotto Data
-
 on:
   schedule:
-    - cron: "0 12 * * *" # каждый день в 12:00 UTC
-  workflow_dispatch: # позволяет запускать вручную
+    - cron: "0 12 * * *"  # каждый день в 12:00 UTC
+  workflow_dispatch:       # чтобы можно было запускать вручную
 
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -18,15 +16,18 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install node-fetch@3 cheerio
+        run: npm install puppeteer fs
 
       - name: Run update script
-        run: node scripts/updateLotto.js
+        run: node scripts/updateLottoMax.js
 
       - name: Commit & push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data.json
+          git commit -m "Daily update of Lotto data" || echo "No changes to commit"
+          git push
+
           git commit -m "Daily update of Lotto data" || echo "No changes to commit"
           git push
