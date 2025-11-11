@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lotto Max — Three Whales of Fortune</title>
+
+    <!-- PNG favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/styles_ocean.css">
+    <link rel="stylesheet" href="css/styles_lotto.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- 🔙 Верхняя зона -->
+        <header class="lotto-header lotto-max">
+            <a href="index.html" class="back-btn">←</a>
+        </header>
+
+        <!-- 🎟️ Логотип и карточка в одном блоке -->
+        <section class="lotto-top">
+            <img src="img/daily_grand.webp" alt="Lotto Max" class="lotto-logo">
+
+            <div class="card" id="daily_grand-card">
+                <h2 id="daily_grand-title">Daily Grand</h2>
+
+                <p>
+                    <span id="daily_grand-nextDrawTitle">Next Draw:</span>
+                    <span id="daily_grand-nextDrawDate">–</span>
+                </p>
+
+                <p>
+                    <span id="daily_grand-jackpotTitle">Jackpot:</span>
+                    <span id="daily_grand-jackpotAmount">–</span>
+                </p>
+
+                <p>
+                    <span id="daily_grand-numbersTitle">Last Numbers:</span>
+                    <span id="daily_grand-lastNumbers">–</span>
+                </p>
+            </div>
+
+
+        </section>
+        <section class="stage" style="margin-bottom:120px">
+            <div class="waves" aria-hidden>
+                <!-- SVG waves animated with CSS transform -->
+                <svg class="wave" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                    <path id="wavePath" d="M0,100 C300,200 900,0 1200,100 L1200,400 L0,400 Z" fill="#0288D1"
+                        opacity="0.5"></path>
+                    <path d="M0,120 C250,60 750,200 1200,120 L1200,400 L0,400 Z" fill="#81D4FA" opacity="0.9">
+                    </path>
+                </svg>
+            </div>
+
+            <!-- 🧩 Кнопки -->
+            <section class="lotto-buttons">
+                <button id="navQuikPick" class="lotto-btn red">Quick Pick</button>
+                <button id="navStarts" class="lotto-btn green">Stats</button>
+                <button id="navWins" class="lotto-btn blue">Wins</button>
+                <button id="navHints" class="lotto-btn purple">Hints</button>
+            </section>
+
+            <div class="floating" aria-hidden>
+                <div class="whale-wrapper" id="w1"><img src="img/whale1.webp" class="whale" alt="whale 1" /></div>
+                <div class="whale-wrapper" id="w2"><img src="img/whale1.webp" class="whale" alt="whale 2" /></div>
+                <div class="whale-wrapper" id="w3"><img src="img/whale1.webp" class="whale" alt="whale 3" /></div>
+            </div>
+        </section>
+
+        <!-- 📢 Баннер -->
+        <footer class="ad">Ad placeholder — Banner</footer>
+    </div>
+
+    <script src="js/ui.js"></script>
+    <script src="js/updateDailyGrand.js"></script>
+
+</body>
+
+</html>

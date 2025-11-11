@@ -1,0 +1,253 @@
+:root {
+    --blue-1: #01579B;
+    --blue-2: #0288D1;
+    --accent: #FF5722;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+}
+
+/* --- Базовые стили страницы --- */
+html,
+body,
+#app {
+    min-height: 100vh;
+    margin: 0;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #E1F5FE 0%, #FFFFFF 60%);
+    color: #033046;
+}
+
+/* плавный уход со страницы перед навигацией */
+body.page-fade-out {
+    transition: opacity .22s ease, transform .22s ease;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+/* Верхняя панель с кнопкой */
+.lotto-header {
+    position: relative;
+    padding: 12px 16px;
+}
+
+/* Кнопка "Назад" */
+.back-btn {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #FF5722;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Логотип и карточка в ряд */
+.lotto-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 0 16px;
+}
+
+/* Логотип Lotto Max */
+.lotto-logo {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Карточка розыгрыша */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    padding: 16px 12px;
+    text-align: center;
+}
+
+
+.card h2 {
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 8px;
+    font-size: 1.7rem;
+}
+
+.card p {
+    margin: 8px 0;
+    color: #004D40;
+    font-size: 1.1rem;
+}
+
+
+#lotto_max-nextDrawDate,
+#lotto_649-nextDrawDate,
+#daily_grand-nextDrawDate {
+    color: var(--accent);
+}
+
+#lotto_max-jackpotAmount,
+#lotto_649-jackpotAmount,
+#daily_grand-jackpotAmount {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#lotto_649-goldBallAmount {
+    color: #F44336;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+}
+
+.ball,
+.bonus-ball {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+    /* было 0 1px — теперь чуть плотнее, но не слипаются */
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    /* чтобы цифры были по центру идеально */
+    vertical-align: middle;
+}
+
+.ball {
+    background: #2196F3;
+}
+
+.bonus-ball {
+    background: #F44336;
+}
+
+.plus {
+    color: #333;
+    font-weight: 700;
+    margin: 0 1px;
+    /* меньше расстояние между числами и плюсом */
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+/* --- Кнопки --- */
+.lotto-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    padding: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.lotto-btn {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    animation: pulse 2.5s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+.lotto-btn:hover {
+    transform: scale(1.05);
+}
+
+.lotto-btn:focus,
+.lotto-btn:active {
+    outline: none;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Цветовые схемы */
+.lotto-btn.red {
+    background: radial-gradient(circle, #fff, #F2B2B2, #9B0005);
+}
+
+.lotto-btn.green {
+    background: radial-gradient(circle, #fff, #B2F2BB, #009B72);
+}
+
+.lotto-btn.blue {
+    background: radial-gradient(circle, #fff, #B2C2F2, #002C9B);
+}
+
+.lotto-btn.purple {
+    background: radial-gradient(circle, #fff, #F2B2EC, #9B0093);
+}
+
+/* --- Анимация пульса --- */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* --- Баннер --- */
+footer.ad {
+    text-align: center;
+    padding: 10px;
+    color: #777;
+    background: #fff;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 720px) {
+    .lotto-card {
+        margin: 10px;
+        padding: 12px;
+    }
+
+    .lotto-btn {
+        width: 120px;
+        height: 120px;
+    }
+
+    .lotto-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .lotto-logo {
+        width: 180px;
+    }
+}

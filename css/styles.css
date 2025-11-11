@@ -1,0 +1,320 @@
+:root {
+    --blue-1: #01579B;
+    --blue-2: #0288D1;
+    --accent: #FF5722;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    background: linear-gradient(180deg, #E1F5FE 0%, #FFFFFF 60%);
+    color: #033046
+}
+
+/* плавный уход со страницы перед навигацией */
+body.page-fade-out {
+    transition: opacity .22s ease, transform .22s ease;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.menu-toggle,
+.lang-switch {
+    position: fixed;
+    top: 10px;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    position: fixed;
+    left: 16px;
+    font-size: 18px;
+    top: 16px;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    padding: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+/* language switch */
+.lang-switch {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    z-index: 60;
+    background: rgba(255, 255, 255, .9);
+    padding: 6px 10px;
+    border-radius: 999px
+}
+
+header {
+    margin-top: 40px;
+    padding: 28px 20px 8px;
+    text-align: center
+}
+
+.title,
+.subtitle {
+    margin: 6px 0 0;
+    color: var(--blue-2);
+    font-size: 2rem;
+}
+
+.subtitle {
+   font-size: 1.5rem;
+}
+
+.inline-icon-title {
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.inline-icon-subtitle {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+
+.controls {
+    display: none;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*  buttons */
+.buttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    gap: 30px;
+    /* ← вот это регулирует расстояние между шарами */
+    flex-wrap: wrap;
+    /* чтобы на телефоне красиво переносились */
+    margin-top: 20px;
+}
+
+.whale-btn {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: pulse 2.5s infinite ease-in-out;
+    transition: transform 0.3s;
+}
+
+.whale-btn img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    /* заполняет весь круг */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+#btnLottoMax {
+    animation-delay: 0s;
+}
+
+#btn649 {
+    animation-delay: 0.5s;
+}
+
+#btnDaily {
+    animation-delay: 1s;
+}
+
+/* Drawer */
+.drawer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 290px;
+    background: #fff;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.12);
+    transform: translateX(-110%);
+    transition: transform .28s ease;
+    z-index: 40;
+    padding: 16px;
+    overflow: auto;
+}
+
+.drawer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer nav ul li {
+    margin: 10px 0;
+}
+
+.drawer nav a {
+    display: block;
+    padding: 12px 18px;
+    color: #01579B;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.drawer nav a:hover {
+    background: rgba(1, 87, 155, 0.1);
+    transform: translateX(4px);
+}
+
+.drawer nav a:active {
+    background: rgba(1, 87, 155, 0.2);
+    transform: translateX(2px);
+}
+
+.drawer nav a:visited {
+    color: #01579B;
+}
+
+.drawer h3 {
+    color: #002C9B;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.drawer.open {
+    transform: translateX(0)
+}
+
+/* Bottom ad area */
+footer.ad {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 64px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.06)
+}
+
+/* Responsive */
+@media (max-width:720px) {
+    h1 {
+        font-size: 22px
+    }
+
+    .whale-btn {
+        width: 120px;
+        height: 120px
+    }
+}
+
+/* Simple dialog */
+.dialog-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60
+}
+
+.dialog {
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 360px;
+    text-align: center
+}
+
+.dialog button {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 0;
+    background: var(--blue-2);
+    color: white
+}
+
+.draw-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.draw-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 8px 10px;
+}
+
+.draw-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.draw-info {
+    line-height: 1.2;
+}
+
+.draw-date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}

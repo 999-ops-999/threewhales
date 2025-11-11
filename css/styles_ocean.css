@@ -1,0 +1,138 @@
+html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Waves area */
+.stage {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    margin: 18px;
+    box-shadow: var(--card-shadow);
+    background: linear-gradient(180deg, #B3E5FC 0%, #81D4FA 100%);
+    height: 60vh; /* ✅ 60% от высоты экрана */
+    min-height: 300px; /* чтобы на телефонах не была слишком маленькой */
+}
+
+.waves {
+    position: absolute;
+    inset: 0
+}
+
+svg.wave {
+    width: 200%;
+    height: 100%;
+    animation: waveMove 12s linear infinite;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Floating whales */
+.floating {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.whale-wrapper {
+    position: absolute;
+    animation: swim 25s linear infinite;
+}
+
+.whale {
+    width: 120px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* разные размеры */
+#w1 .whale {
+    width: 120px;
+}
+
+#w2 .whale {
+    width: 160px;
+}
+
+#w3 .whale {
+    width: 120px;
+}
+
+/* движение */
+@keyframes swim {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-120vw);
+    }
+}
+
+/* плавание вверх-вниз */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* разные задержки и скорости */
+#w1 {
+    top: 30px;
+    left: 90%;
+    animation-duration: 22s;
+    animation-delay: 0s;
+}
+
+#w2 {
+    top: 40px;
+    left: 40%;
+    animation-duration: 25s;
+    animation-delay: 3s;
+}
+
+#w3 {
+    top: 20px;
+    left: 50%;
+    animation-duration: 27s;
+    animation-delay: 6s;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 720px) {
+    .whale-wrapper {
+    animation: swim 10s linear infinite;
+}
+
+#w1 {
+    animation-duration: 17s;
+}
+
+#w2 {
+    animation-duration: 15s;
+}
+
+#w3 {
+    animation-duration: 17s;
+}
+
+}

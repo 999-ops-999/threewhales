@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Three Whales of Fortune — Lottery</title>
+
+    <!-- PNG favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/styles_ocean.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="menu-toggle" id="menuToggle" aria-label="menu">☰</div>
+        <div class="lang-switch">
+            <select id="langSelect" title="Language">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+
+        <header>
+            <h1>
+                <img src="img/icons/whale_icon.png" alt="Whale" class="inline-icon-title">
+                <span class="title" id="title"></span>
+            </h1>
+            <h2>
+                <img src="img/icons/whale_icon.png" alt="Whale" class="inline-icon-subtitle">
+                <span class="subtitle" id="subtitle"></span>
+            </h2>
+
+        </header>
+
+        <main>
+            <section class="stage">
+                <div class="waves" aria-hidden>
+                    <!-- SVG waves animated with CSS transform -->
+                    <svg class="wave" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                        <path id="wavePath" d="M0,100 C300,200 900,0 1200,100 L1200,400 L0,400 Z" fill="#0288D1"
+                            opacity="0.5"></path>
+                        <path d="M0,120 C250,60 750,200 1200,120 L1200,400 L0,400 Z" fill="#81D4FA" opacity="0.9">
+                        </path>
+                    </svg>
+                </div>
+
+                <div class="buttons" role="navigation" aria-label="lottery buttons">
+                    <div class="whale-btn" id="btnLottoMax"
+                        style="background:radial-gradient(circle,#fff,#F2B2B2,#9B0005);">
+                        <img src="img/lotto_max.webp" alt="Lotto Max logo" />
+                    </div>
+
+                    <div class="whale-btn" id="btn649" style="background:radial-gradient(circle,#fff,#B2F2BB,#009B72);">
+                        <img src="img/l6_49.webp" alt="Lotto 6/49 logo" />
+                    </div>
+
+                    <div class="whale-btn" id="btnDaily"
+                        style="background:radial-gradient(circle,#fff,#B2C2F2,#002C9B);">
+                        <img src="img/daily_grand.webp" alt="Daily Grand logo" />
+                    </div>
+                </div>
+
+                <div class="floating" aria-hidden>
+                    <div class="whale-wrapper" id="w1"><img src="img/whale1.webp" class="whale" alt="whale 1" /></div>
+                    <div class="whale-wrapper" id="w2"><img src="img/whale1.webp" class="whale" alt="whale 2" /></div>
+                    <div class="whale-wrapper" id="w3"><img src="img/whale1.webp" class="whale" alt="whale 3" /></div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div>
+                    <button id="openDrawer">☰ Menu</button>
+                    <div class="toggle">
+                        <label id="notifLabel">🔔 Notifications</label>
+                        <input type="checkbox" id="notif649" /> <span>6/49</span>
+                        <input type="checkbox" id="notifMax" /> <span>Max</span>
+                        <input type="checkbox" id="notifDaily" /> <span>Daily</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="drawer" id="drawer" aria-hidden>
+            <h3 id="menuTitle">Menu</h3>
+            <nav>
+                <ul>
+                    <li><a href="lottomax.html" id="navMax">Lotto Max</a></li>
+                    <li><a href="lotto649.html" id="nav649">Lotto 6/49</a></li>
+                    <li><a href="dailygrand.html" id="navDaily">Daily Grand</a></li>
+                    <li><a href="https://play.google.com/store" target="_blank" id="navGooglePlay">Google Play</a></li>
+                </ul>
+            </nav>
+
+            <hr />
+            <div>
+                <h4 id="notificationsHdr">Notifications</h4>
+                <p id="receivePerm">Allow notifications to receive reminders</p>
+                <button id="enablePerm">Enable notifications</button>
+            </div>
+        </aside>
+
+        <div id="dialogHost"></div>
+
+        <footer class="ad" role="contentinfo">Ad placeholder — Banner</footer>
+    </div>
+
+
+    <script src="js/ui.js"></script>
+    <script src="js/dialog.js"></script>
+
+
+</body>
+
+</html>
